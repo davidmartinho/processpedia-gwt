@@ -1,0 +1,14 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <ui:style>
+    .width100 { width: 100%; }
+    .orange { background-color: #FA0; color: #000; }
+    .footer { height: 45px; }
+    .center { padding-top: 15px; text-align: center; font-size: 13px; font-family: 'Helvetica-neue', Helvetica, sans-serif; font-weight: 400; }
+  </ui:style>
+  <g:ScrollPanel addStyleNames="{style.width100}">
+	  <g:VerticalPanel ui:field="pendingRequestsContainer" addStyleNames="{style.width100}">
+	  </g:VerticalPanel>
+	</g:ScrollPanel>
+</ui:UiBinder>

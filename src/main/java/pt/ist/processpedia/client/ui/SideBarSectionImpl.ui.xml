@@ -1,0 +1,14 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <ui:style>
+    .width100 { width: 100%; height: 100%; cursor: pointer; }
+    .gray { background-color: #CCC; color: #000; margin-bottom: 5px; -webkit-border-radius: 4px;  }
+    .a:link { margin-bottom: 5px; text-decoration: none; color: #000; }
+    .a:hover { background-color: #FA0; }
+    .header { height: 90px; }
+  </ui:style>
+	<g:HorizontalPanel addStyleNames="{style.width100} {style.gray}">
+	  <g:Anchor addStyleNames="{style.a}">Section A</g:Anchor>
+	</g:HorizontalPanel>
+</ui:UiBinder>

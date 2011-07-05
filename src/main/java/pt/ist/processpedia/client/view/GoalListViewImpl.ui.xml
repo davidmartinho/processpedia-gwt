@@ -1,0 +1,12 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:p="urn:import:pt.ist.processpedia.client.ui">
+  <ui:style>
+    .textbox { width: 500px; height: 22px; font-size: 15px; background-color: #FFF; color: #000; -webkit-border-radius: 5px; }
+  </ui:style>
+  <g:VerticalPanel ui:field="goalsContainer">
+    <p:TextBox ui:field="newGoalAction" addStyleNames="{style.textbox}" placeholder="Add a new goal here"/>
+    <g:CheckBox>Goal A</g:CheckBox>
+  </g:VerticalPanel>
+</ui:UiBinder>

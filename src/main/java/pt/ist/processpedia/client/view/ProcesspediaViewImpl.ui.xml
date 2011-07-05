@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:v="urn:import:pt.ist.processpedia.client.view">
+  <ui:style>
+    .center { width: 100%; background-color: #000; text-align: center; }
+  </ui:style>
+  <g:DockLayoutPanel unit='PX'>
+    <g:north size='32'>
+      <v:HeaderViewImpl addStyleNames="{style.center}" />
+    </g:north>
+    <g:south size='100'>
+      <v:FooterViewImpl />
+    </g:south>
+    <g:west size='250'>
+	    <v:SideBarViewImpl />
+    </g:west>
+    <g:center>
+      <g:ScrollPanel>
+        <v:ContentViewImpl />
+      </g:ScrollPanel>
+    </g:center>
+  </g:DockLayoutPanel>
+</ui:UiBinder> 

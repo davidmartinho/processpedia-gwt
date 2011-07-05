@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <ui:style>
+    .width100 { width: 100%; }
+    .orange { background-color: #FA0; color: #000; }
+    .footer { height: 45px; }
+    .center { padding-top: 15px; text-align: center; font-size: 13px; font-family: 'Helvetica-neue', Helvetica, sans-serif; font-weight: 400; }
+  </ui:style>
+	<g:VerticalPanel addStyleNames="{style.width100} {style.orange} {style.footer}">
+    <g:Label addStyleNames="{style.center}" text="Processpedia is developed by the ESW Software Engineering Group" />
+	</g:VerticalPanel>
+</ui:UiBinder>
