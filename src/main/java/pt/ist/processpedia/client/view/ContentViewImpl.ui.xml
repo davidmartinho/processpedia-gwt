@@ -3,12 +3,9 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:p="urn:import:pt.ist.processpedia.client.view">
   <ui:style>
-    .width100 { width: 100%; height: 100%; }
-    .width25 {width: 25}
-    .gray { background-color: #EEE; color: #000; }
-    .header { height: 90px; }
+    .width100 { width: 100%; }
   </ui:style>
-	<g:VerticalPanel addStyleNames="{style.width100} {style.gray}">
+	<g:VerticalPanel addStyleNames="{style.width100}">
 	  <p:ProcessViewImpl />
 	</g:VerticalPanel>
 </ui:UiBinder>

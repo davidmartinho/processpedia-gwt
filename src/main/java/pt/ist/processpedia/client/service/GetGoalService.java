@@ -6,7 +6,7 @@ import com.google.gwt.http.client.URL;
 import pt.ist.processpedia.client.dto.GoalDto;
 
 public abstract class GetGoalService extends GetService<GoalDto> {
-  
+
 	private final String goalId;
 
 	public GetGoalService(String goalId) {
@@ -21,5 +21,5 @@ public abstract class GetGoalService extends GetService<GoalDto> {
   public void onResponse(String responseBody) {
 	  onSuccess(new GoalDto(responseBody));
 	}
-	 
+
 }

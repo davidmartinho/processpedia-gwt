@@ -4,13 +4,13 @@
              xmlns:v="urn:import:pt.ist.processpedia.client.view"
              xmlns:w="urn:import:pt.ist.processpedia.client.ui">
   <ui:style>
-    .view { padding: 10px 10px; }
-    .processTitle { font-size: 28px; color: #000; margin-bottom: 5px; }
+    .view { width: 100%; padding: 10px 10px; }
+    .processTitle { font-size: 28px; color: #000; margin-bottom: 2px; }
     .processDescription { font-size: 13px; color: #000; margin-bottom: 2px; }
   </ui:style>
   <g:VerticalPanel styleName="{style.view}">
-    <g:Label styleName="{style.processTitle}">Manage John Doe's MSc Thesis</g:Label>
-	  <w:EditableLabel text="This process intends to manage the MSc thesis of John Doe" />
+    <w:EditableLabel styleName="{style.processTitle}" text="Manage John Doe's MSc Thesis" />
+	  <w:EditableLabel text="This process intends to manage the MSc thesis of John Doe" addStyleNames="{style.processDescription}" />
 	  <v:GoalListViewImpl />
   </g:VerticalPanel>
 </ui:UiBinder>

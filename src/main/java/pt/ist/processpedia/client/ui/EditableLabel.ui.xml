@@ -1,6 +1,11 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<g:SimplePanel>
+  <ui:style>
+    .width100 { width: 100%; }
+  </ui:style>
+	<g:SimplePanel ui:field="panel" addStyleNames="{style.width100}">
+	  <g:Label ui:field="label" />
+	  <g:TextBox ui:field="textBox" />
 	</g:SimplePanel>
 </ui:UiBinder>

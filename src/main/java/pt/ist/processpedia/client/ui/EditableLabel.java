@@ -4,8 +4,10 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 import com.google.gwt.event.dom.client.KeyDownHandler;
 import com.google.gwt.event.dom.client.BlurHandler;
@@ -13,26 +15,31 @@ import com.google.gwt.event.dom.client.BlurEvent;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyCodes;
 
-import com.google.gwt.user.client.Window;
-
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.uibinder.client.UiField;  
 
-import com.google.gwt.user.client.ui.HasWidgets;
-
-public class EditableLabel extends SimplePanel {
-		
+public class EditableLabel extends Composite {
+	
+	@UiField
+	private final SimplePanel panel;
+	
+	@UiField
 	private final Label label;
+	
+	@UiField
 	private final TextBox textBox;
 	
-	public EditableLabel() {
-		this("");
+	public @UiConstructor EditableLabel(String text) {
+		this.panel = new SimplePanel();
+		this.label = new Label(text);
+		this.textBox = new TextBox();
+		this.panel.add(this.label);
+		bindHandlers();
+		initWidget(this.panel);
 	}
 	
-	public EditableLabel(String label) {
-		this.label = new Label(label);
-		this.textBox = new TextBox();
-		this.add(this.label);
+	private void bindHandlers() {
 		this.label.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent e) {
 				edit();
@@ -40,36 +47,38 @@ public class EditableLabel extends SimplePanel {
 		});
 		this.textBox.addKeyDownHandler(new KeyDownHandler() {
 			public void onKeyDown(KeyDownEvent e) {
-				if(e.getNativeKeyCode()==KeyCodes.KEY_ENTER) {
+				int pressedKeyCode = e.getNativeKeyCode();
+				if(pressedKeyCode==KeyCodes.KEY_ENTER) {
 		 			change();
-				} else if(e.getNativeKeyCode()==KeyCodes.KEY_ESCAPE) {
+				} else if(pressedKeyCode==KeyCodes.KEY_ESCAPE) {
 					cancel();
 				}
 		  }
 		});
 		this.textBox.addBlurHandler(new BlurHandler() {
 		  public void onBlur(BlurEvent e) {
-			  cancel();
+			  change();
 		  }
-		});  
+		});
 	}
 	
 	public void change() {
 		this.label.setText(this.textBox.getText());
-		this.clear();
-		this.add(this.label);
+		this.panel.clear();
+		this.panel.add(this.label);
 	}
 	
 	public void cancel() {
-		this.clear();
-		this.add(this.label);
+		this.panel.clear();
+		this.panel.add(this.label);
 		this.textBox.setText(this.label.getText());
 	} 
 	
 	public void edit() {
-		this.clear();
+		this.panel.clear();
 		this.textBox.setVisibleLength(this.label.getText().length());
-		this.add(this.textBox);
+		this.textBox.setText(this.label.getText());
+		this.panel.add(this.textBox);
 		this.textBox.setFocus(true);
 	}
 	

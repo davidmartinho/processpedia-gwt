@@ -9,5 +9,5 @@ public abstract class DeleteService<T> extends Service<T> {
 	public DeleteService(String url) {
     super(RequestBuilder.DELETE, url);
   }
-	 
+
 }
