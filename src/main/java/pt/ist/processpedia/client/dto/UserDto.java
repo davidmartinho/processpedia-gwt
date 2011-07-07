@@ -17,6 +17,11 @@
 
 package pt.ist.processpedia.client.dto;
 
+import com.google.gwt.json.client.JSONException;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
+
 /**
  * A DTO representing a User domain object.
  */
