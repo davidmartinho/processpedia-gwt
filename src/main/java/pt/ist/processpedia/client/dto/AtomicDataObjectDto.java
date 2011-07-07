@@ -25,7 +25,6 @@ public class AtomicDataObjectDto extends DataObjectDto {
   public enum Type { STRING, INTEGER }
 
   private Type type;
-
 	private String externalizedValue;
 
   /**
@@ -56,5 +55,21 @@ public class AtomicDataObjectDto extends DataObjectDto {
 	public String getExternalizedValue() {
 		return this.externalizedValue;
 	}
+
+  /**
+   * Changes the type associated to the data object.
+   * @param newType the data object's new type
+   */
+  public void setType(Type newType) {
+    this.type = newType;
+  }
+
+  /**
+   * Update the value associated to the atomic data object.
+   * @param newExternalizedValue the data object's new externalized value
+   */
+  public void setExternalizedValue(String newExternalizedValue) {
+    this.externalizedValue = newExternalizedValue;
+  }
 
 }

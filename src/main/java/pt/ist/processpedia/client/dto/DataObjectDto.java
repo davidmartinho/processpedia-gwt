@@ -39,7 +39,15 @@ public abstract class DataObjectDto extends DomainDto {
    * @return the data object's identifying label
    */
 	public String getLabel() {
-		return this.label;
+		return label;
 	}
+
+  /**
+   * Update the label of the data object.
+   * @param newLabel the data object's new label
+   */
+  public void setLabel(String newLabel) {
+    this.label = newLabel;
+  }
 
 }

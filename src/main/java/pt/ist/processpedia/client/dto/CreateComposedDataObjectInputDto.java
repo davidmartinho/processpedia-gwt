@@ -18,31 +18,26 @@
 package pt.ist.processpedia.client.dto;
 
 /**
- * A DTO representing a User domain object.
+ * A data container with the necessary input data to create a new composed data object.
  */
-public class UserDto extends DomainDto {
+public class CreateComposedDataObjectInputDto implements Dto {
 
-  private String name;
+  private String label;
 
-	public UserDto(String userId, String name) {
-		super(userId);
-    this.name = name;
+  /**
+   * Creates a DTO representing the creation of a new composed data object.
+   * @param label the label of the data object to be created
+   */
+  public CreateComposedDataObjectInputDto(String label) {
+    this.label = label;
+  }
+
+  /**
+   * Obtain the label of the data object to be created.
+   * @return the data object's label
+   */
+	public String getLabel() {
+		return label;
 	}
-
-  /**
-   * Obtain the name of the user.
-   * @return the user's name
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Update the name of the user.
-   * @param newName the user's new name
-   */
-  public void setName(String newName) {
-    this.name = newName;
-  }
 
 }
