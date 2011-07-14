@@ -15,27 +15,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package pt.ist.processpedia.client.service;
+package pt.ist.processpedia.client.exception;
 
-import com.google.gwt.http.client.URL;
+import pt.ist.processpedia.client.dto.RequestDto;
 
-import pt.ist.processpedia.client.dto.DataObjectDto;
-import pt.ist.processpedia.client.service.http.PutService;
+public class RequestAlreadyClaimedException extends ProcesspediaException {
 
-public abstract class UpdateDataObjectService extends PutService<DataObjectDto> {
-  
-  private DataObjectDto dataObjectDto;
+  private RequestDto requestDto;
 
-	public UpdateDataObjectService(DataObjectDto dataObjectDto) {
-    super(URL.encode(URLBase.DATAOBJECT_BASE_URL+dataObjectDto.getId()));
-		this.dataObjectDto = dataObjectDto;
+  public RequestAlreadyClaimedException(RequestDto requestDto) {
+    this.requestDto = requestDto;
   }
 
-  public DataObjectDto getDataObjectDto() {
-    return dataObjectDto;
+  public RequestDto getRequestDto() {
+    return this.requestDto;
   }
 
 }
-
-
-

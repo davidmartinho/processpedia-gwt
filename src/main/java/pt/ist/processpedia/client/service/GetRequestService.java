@@ -1,9 +1,9 @@
 package pt.ist.processpedia.client.service;
 
-import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.URL;
 
 import pt.ist.processpedia.client.dto.RequestDto;
+import pt.ist.processpedia.client.service.http.GetService;
 
 public abstract class GetRequestService extends GetService<RequestDto> {
 
@@ -18,8 +18,4 @@ public abstract class GetRequestService extends GetService<RequestDto> {
 		return this.requestId;
   }
 
-  public void onResponse(String responseBody) {
-	  onSuccess(new RequestDto(responseBody));
-	}
-	 
 }

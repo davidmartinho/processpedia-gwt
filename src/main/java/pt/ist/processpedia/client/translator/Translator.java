@@ -15,27 +15,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package pt.ist.processpedia.client.service;
+package pt.ist.processpedia.client.translator;
 
-import com.google.gwt.http.client.URL;
+import pt.ist.processpedia.client.translator.exception.CannotTranslateObjectException;
+import pt.ist.processpedia.client.translator.exception.CannotExternalizeObjectException;
 
-import pt.ist.processpedia.client.dto.DataObjectDto;
-import pt.ist.processpedia.client.service.http.PutService;
+public interface Translator {
 
-public abstract class UpdateDataObjectService extends PutService<DataObjectDto> {
-  
-  private DataObjectDto dataObjectDto;
+  public interface Type { }
 
-	public UpdateDataObjectService(DataObjectDto dataObjectDto) {
-    super(URL.encode(URLBase.DATAOBJECT_BASE_URL+dataObjectDto.getId()));
-		this.dataObjectDto = dataObjectDto;
-  }
+  public enum DtoType implements Type { USER, GOAL, PROCESS, REQUEST, UNKNOWN }
 
-  public DataObjectDto getDataObjectDto() {
-    return dataObjectDto;
-  }
+  public enum ExceptionType implements Type { USER_NOT_FOUND, USER_INACTIVE, REQUEST_ALREADY_CLAIMED, UNKNOWN }
+
+  public String externalize(Object object) throws CannotExternalizeObjectException;
+
+  public Object parse(String externalizedObject) throws CannotTranslateObjectException;
+
+  public String getExternalizationContentType();
 
 }
-
-
-

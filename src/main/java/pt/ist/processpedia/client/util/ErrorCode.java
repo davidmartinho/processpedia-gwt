@@ -15,27 +15,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package pt.ist.processpedia.client.service;
+package pt.ist.processpedia.client.util;
 
-import com.google.gwt.http.client.URL;
+import pt.ist.processpedia.client.translator.Translator.ExceptionType;
 
-import pt.ist.processpedia.client.dto.DataObjectDto;
-import pt.ist.processpedia.client.service.http.PutService;
+public class ErrorCode {
 
-public abstract class UpdateDataObjectService extends PutService<DataObjectDto> {
-  
-  private DataObjectDto dataObjectDto;
+  private final String errorCode;
 
-	public UpdateDataObjectService(DataObjectDto dataObjectDto) {
-    super(URL.encode(URLBase.DATAOBJECT_BASE_URL+dataObjectDto.getId()));
-		this.dataObjectDto = dataObjectDto;
+  public ErrorCode(String errorCode) {
+    this.errorCode = errorCode;
   }
 
-  public DataObjectDto getDataObjectDto() {
-    return dataObjectDto;
+  private Boolean isUserNotFoundException() {
+    return errorCode.equals("UserNotFoundException");
+  }
+
+  public ExceptionType getExceptionType() {
+    if(isUserNotFoundException()) {
+      return ExceptionType.USER_NOT_FOUND;
+    } else {
+      return ExceptionType.UNKNOWN;
+    }
   }
 
 }
-
-
-

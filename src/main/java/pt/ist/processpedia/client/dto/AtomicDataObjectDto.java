@@ -22,7 +22,7 @@ package pt.ist.processpedia.client.dto;
  */
 public class AtomicDataObjectDto extends DataObjectDto {
 
-  public enum Type { STRING, INTEGER }
+  public enum Type { STRING, INTEGER, DATE }
 
   private Type type;
 	private String externalizedValue;

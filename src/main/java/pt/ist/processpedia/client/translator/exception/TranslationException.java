@@ -15,27 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package pt.ist.processpedia.client.service;
+package pt.ist.processpedia.client.translator.exception;
 
-import com.google.gwt.http.client.URL;
-
-import pt.ist.processpedia.client.dto.DataObjectDto;
-import pt.ist.processpedia.client.service.http.PutService;
-
-public abstract class UpdateDataObjectService extends PutService<DataObjectDto> {
-  
-  private DataObjectDto dataObjectDto;
-
-	public UpdateDataObjectService(DataObjectDto dataObjectDto) {
-    super(URL.encode(URLBase.DATAOBJECT_BASE_URL+dataObjectDto.getId()));
-		this.dataObjectDto = dataObjectDto;
-  }
-
-  public DataObjectDto getDataObjectDto() {
-    return dataObjectDto;
-  }
-
-}
-
-
-
+public abstract class TranslationException extends Exception { }

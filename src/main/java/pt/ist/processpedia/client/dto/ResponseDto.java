@@ -15,27 +15,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package pt.ist.processpedia.client.service;
+package pt.ist.processpedia.client.dto;
 
-import com.google.gwt.http.client.URL;
+/**
+ * A DTO representing a Response domain object.
+ */
+public class ResponseDto extends DomainDto {
 
-import pt.ist.processpedia.client.dto.DataObjectDto;
-import pt.ist.processpedia.client.service.http.PutService;
-
-public abstract class UpdateDataObjectService extends PutService<DataObjectDto> {
-  
-  private DataObjectDto dataObjectDto;
-
-	public UpdateDataObjectService(DataObjectDto dataObjectDto) {
-    super(URL.encode(URLBase.DATAOBJECT_BASE_URL+dataObjectDto.getId()));
-		this.dataObjectDto = dataObjectDto;
-  }
-
-  public DataObjectDto getDataObjectDto() {
-    return dataObjectDto;
+  /**
+   * Creates a DTO representing a Response domain object.
+   * @param responseId the identifier of the response
+   */
+  public ResponseDto(String responseId) {
+    super(responseId);
   }
 
 }
-
-
-

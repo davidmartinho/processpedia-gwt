@@ -1,13 +1,30 @@
+/**
+ * Copyright 2011 ESW Software Engineering Group
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ **/
+
 package pt.ist.processpedia.client.service;
 
-import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.URL;
 
 import pt.ist.processpedia.client.dto.RequestDto;
+import pt.ist.processpedia.client.service.http.PutService;
 
 public abstract class UpdateRequestService extends PutService<RequestDto> {
   
-  private RequestDto requestDto;
+  private final RequestDto requestDto;
 
 	public UpdateRequestService(RequestDto requestDto) {
     super(URL.encode(URLBase.REQUEST_BASE_URL+requestDto.getId()));
@@ -16,10 +33,6 @@ public abstract class UpdateRequestService extends PutService<RequestDto> {
 
 	public RequestDto getRequestDto() {
 		return this.requestDto;
-	}
-
-  public void onResponse(String responseBody) {
-	  onSuccess(new RequestDto(responseBody));
 	}
 	 
 }

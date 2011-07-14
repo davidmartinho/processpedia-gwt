@@ -1,23 +1,34 @@
+/**
+ * Copyright 2011 ESW Software Engineering Group
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ **/
+
 package pt.ist.processpedia.client.service;
 
 import java.util.Set;
 import java.util.HashSet;
 
-import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.URL;
 
 import pt.ist.processpedia.client.dto.UserDto;
+import pt.ist.processpedia.client.service.http.GetService;
 
 public abstract class GetUserSetService extends GetService<Set<UserDto>> {
 
 	public GetUserSetService() {
     super(URL.encode(URLBase.REQUEST_BASE_URL));
   }
-
-  public void onResponse(String responseBody) {
-		Set<UserDto> userSet = new HashSet<UserDto>();
-		userSet.add(new UserDto(responseBody));
-	  onSuccess(userSet);
-	}
 
 }

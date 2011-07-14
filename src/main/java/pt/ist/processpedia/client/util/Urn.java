@@ -15,12 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package pt.ist.processpedia.client.json;
+package pt.ist.processpedia.client.util;
 
-import pt.ist.processpedia.client.dto.DTOMapper.Type;
+import pt.ist.processpedia.client.translator.Translator.DtoType;
+import pt.ist.processpedia.client.translator.Translator.Type;
 
 public class Urn {
 
+  private static final Integer URN_INDEX = 0;
   private static final Integer DOMAIN_INDEX = 1;
   private static final Integer CLASS_INDEX = 2;
   private static final Integer ID_INDEX = 3;
@@ -70,11 +72,11 @@ public class Urn {
 
   public Type getType() {
     if(isUser()) {
-      return Type.USER;
+      return DtoType.USER;
     } else if(isProcess()) {
-      return Type.PROCESS;
+      return DtoType.PROCESS;
     } else {
-      return Type.UNKNOWN;
+      return DtoType.UNKNOWN;
     }
   }
 

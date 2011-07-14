@@ -1,28 +1,43 @@
+/**
+ * Copyright 2011 ESW Software Engineering Group
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ **/
+
 package pt.ist.processpedia.client.service;
 
-import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.URL;
 
-import pt.ist.processpedia.client.dto.DTOMapper;
 import pt.ist.processpedia.client.dto.GoalDto;
 import pt.ist.processpedia.client.dto.CreateGoalInputDto;
 
+import pt.ist.processpedia.client.service.http.PostService;
+
+import pt.ist.processpedia.client.translator.exception.CannotExternalizeObjectException;
+
 public abstract class CreateGoalService extends PostService<GoalDto> {
   
-  private CreateGoalInputDto createGoalInputDto;
+  private final CreateGoalInputDto createGoalInputDto;
 
-	public CreateGoalService(CreateGoalInputDto createGoalInputDto) {
+	public CreateGoalService(CreateGoalInputDto createGoalInputDto) throws CannotExternalizeObjectException {
     super(URL.encode(URLBase.GOAL_BASE_URL));
 		this.createGoalInputDto = createGoalInputDto;
-		setRequestData(DTOMapper.toJSON(createGoalInputDto));
+		setRequestData(getTranslator().externalize(createGoalInputDto));
   }
 
 	public CreateGoalInputDto getCreateGoalInputDto() {
-		return this.createGoalInputDto;
+		return createGoalInputDto;
 	}
 
-  public void onResponse(String responseBody) {
-	  onSuccess(new GoalDto(responseBody));
-	}
-	 
 }

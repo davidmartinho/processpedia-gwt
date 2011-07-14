@@ -17,6 +17,8 @@
 
 package pt.ist.processpedia.client.dto;
 
+import java.util.Set;
+
 /**
  * A DTO representing a Process domain object.
  */

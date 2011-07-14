@@ -1,9 +1,9 @@
 package pt.ist.processpedia.client.service;
 
-import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.URL;
 
 import pt.ist.processpedia.client.dto.RequestDto;
+import pt.ist.processpedia.client.service.http.DeleteService;
 
 public abstract class DeleteRequestService extends DeleteService<Boolean> {
   
@@ -14,8 +14,4 @@ public abstract class DeleteRequestService extends DeleteService<Boolean> {
 		this.requestDto = requestDto;
   }
 
-  public void onResponse(String responseBody) {
-	  onSuccess(true);
-	}
-	 
 }

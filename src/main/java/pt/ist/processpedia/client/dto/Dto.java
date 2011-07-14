@@ -17,7 +17,9 @@
 
 package pt.ist.processpedia.client.dto;
 
+import java.io.Serializable;
+
 /**
  * An interface representing a Data Transfer Object (DTO).
  */
-public interface Dto { }
+public interface Dto extends Serializable { }
