@@ -21,18 +21,20 @@ import com.google.gwt.http.client.URL;
 
 import pt.ist.processpedia.client.dto.RequestDto;
 import pt.ist.processpedia.client.service.http.PutService;
+import pt.ist.processpedia.client.translator.exception.CannotExternalizeObjectException;
 
 public abstract class UpdateRequestService extends PutService<RequestDto> {
   
   private final RequestDto requestDto;
 
-	public UpdateRequestService(RequestDto requestDto) {
+	public UpdateRequestService(RequestDto requestDto) throws CannotExternalizeObjectException {
     super(URL.encode(URLBase.REQUEST_BASE_URL+requestDto.getId()));
 		this.requestDto = requestDto;
+    setRequestData(getTranslator().externalize(requestDto));
   }
 
 	public RequestDto getRequestDto() {
-		return this.requestDto;
+		return requestDto;
 	}
 	 
 }

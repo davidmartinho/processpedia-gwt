@@ -21,14 +21,16 @@ import com.google.gwt.http.client.URL;
 
 import pt.ist.processpedia.client.dto.GoalDto;
 import pt.ist.processpedia.client.service.http.PutService;
+import pt.ist.processpedia.client.translator.exception.CannotExternalizeObjectException;
 
 public abstract class UpdateGoalService extends PutService<GoalDto> {
   
   private final GoalDto goalDto;
 
-	public UpdateGoalService(GoalDto goalDto) {
+	public UpdateGoalService(GoalDto goalDto) throws CannotExternalizeObjectException {
     super(URL.encode(URLBase.GOAL_BASE_URL+goalDto.getId()));
 		this.goalDto = goalDto;
+    setRequestData(getTranslator().externalize(goalDto));
   }
 
   public GoalDto getGoalDto() {
