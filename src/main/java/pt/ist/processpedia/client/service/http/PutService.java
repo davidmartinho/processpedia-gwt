@@ -17,6 +17,7 @@
 
 package pt.ist.processpedia.client.service.http;
 
+import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.Response;
 import pt.ist.processpedia.client.translator.Translator;
 import pt.ist.processpedia.client.translator.exception.CannotTranslateObjectException;
@@ -24,11 +25,11 @@ import pt.ist.processpedia.client.translator.exception.CannotTranslateObjectExce
 public abstract class PutService<T> extends HttpService<T> {
 
 	public PutService(String url) {
-    super(PUT, url);
+    super(RequestBuilder.PUT, url);
   }
 
   public PutService(String url, Translator translator) {
-    super(PUT, url, translator);
+    super(RequestBuilder.PUT, url, translator);
   }
 
   @Override

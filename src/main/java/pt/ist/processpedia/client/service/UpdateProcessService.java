@@ -26,16 +26,16 @@ import pt.ist.processpedia.client.translator.exception.CannotExternalizeObjectEx
 
 public abstract class UpdateProcessService extends PutService<ProcessDto> {
   
-  private final ProcessDto processDto;
+  private final ProcessDto updatedProcessDto;
 
-	public UpdateProcessService(ProcessDto processDto) throws CannotExternalizeObjectException {
-    super(URL.encode(URLBase.PROCESS_BASE_URL+processDto.getId()));
-		this.processDto = processDto;
-    setRequestData(getTranslator().externalize(processDto));
+	public UpdateProcessService(ProcessDto updatedProcessDto) throws CannotExternalizeObjectException {
+    super(URL.encode(URLBase.PROCESS_BASE_URL+updatedProcessDto.getId()));
+		this.updatedProcessDto = updatedProcessDto;
+    setRequestData(getTranslator().externalize(updatedProcessDto));
   }
 
-  public ProcessDto getProcessDto() {
-    return processDto;
+  public ProcessDto getUpdatedProcessDto() {
+    return updatedProcessDto;
   }
 
 }

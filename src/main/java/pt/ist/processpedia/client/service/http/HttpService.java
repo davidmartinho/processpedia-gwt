@@ -18,15 +18,18 @@
 package pt.ist.processpedia.client.service.http;
 
 import com.google.gwt.http.client.*;
+import com.google.gwt.http.client.RequestBuilder.Method;
+
 import pt.ist.processpedia.client.service.Service;
 
 import pt.ist.processpedia.client.translator.JsonTranslator;
 import pt.ist.processpedia.client.translator.Translator;
 
 
-public abstract class HttpService<T> extends RequestBuilder implements Service<T> {
+public abstract class HttpService<T> implements Service<T> {
 
   private Translator translator;
+  private RequestBuilder requestBuilder;
 
   /**
    * Creates a object representing a HTTP service that uses the translator to externalize and parse data.
@@ -35,9 +38,9 @@ public abstract class HttpService<T> extends RequestBuilder implements Service<T
    * @param translator the translator that will handle data parsing and externalization
    */
   public HttpService(Method httpMethod, String url, Translator translator) {
-    super(httpMethod, url);
     this.translator = translator;
-    setHeader("Content-Type", translator.getExternalizationContentType());
+    this.requestBuilder = new RequestBuilder(httpMethod, url);
+    this.requestBuilder.setHeader("Content-Type", translator.getExternalizationContentType());
   }
 
   /**
@@ -49,6 +52,10 @@ public abstract class HttpService<T> extends RequestBuilder implements Service<T
     this(httpMethod, url, new JsonTranslator());
   }
 
+  public void setRequestData(String requestData) {
+    this.requestBuilder.setRequestData(requestData);
+  }
+
   /**
    * Executes the HTTP service, dispatching any HTTP exception directly to the
    * onError method, or delegating the response to a more concrete service
@@ -56,7 +63,7 @@ public abstract class HttpService<T> extends RequestBuilder implements Service<T
    */
 	public void execute() {
 		try {
-      sendRequest(this.getRequestData(), new RequestCallback() {
+      this.requestBuilder.sendRequest(this.requestBuilder.getRequestData(), new RequestCallback() {
 		    public void onError(Request request, Throwable exception) {
 		      onFailure(exception);
 		    }

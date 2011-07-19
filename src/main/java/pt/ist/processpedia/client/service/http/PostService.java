@@ -17,6 +17,7 @@
 
 package pt.ist.processpedia.client.service.http;
 
+import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.Response;
 import pt.ist.processpedia.client.translator.Translator;
 import pt.ist.processpedia.client.translator.exception.CannotTranslateObjectException;
@@ -24,11 +25,11 @@ import pt.ist.processpedia.client.translator.exception.CannotTranslateObjectExce
 public abstract class PostService<T> extends HttpService<T> {
 
   public PostService(String url) {
-    super(POST, url);
+    super(RequestBuilder.POST, url);
   }
 
   public PostService(String url, Translator translator) {
-    super(POST, url, translator);
+    super(RequestBuilder.POST, url, translator);
   }
 
   @Override

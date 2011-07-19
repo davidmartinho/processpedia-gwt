@@ -17,6 +17,7 @@
 
 package pt.ist.processpedia.client.service.http;
 
+import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.Response;
 import pt.ist.processpedia.client.translator.Translator;
 import pt.ist.processpedia.client.translator.exception.CannotTranslateObjectException;
@@ -24,11 +25,11 @@ import pt.ist.processpedia.client.translator.exception.CannotTranslateObjectExce
 public abstract class DeleteService<T> extends HttpService<T> {
 
 	public DeleteService(String url) {
-    super(DELETE, url);
+    super(RequestBuilder.DELETE, url);
   }
 
   public DeleteService(String url, Translator translator) {
-    super(DELETE, url, translator);
+    super(RequestBuilder.DELETE, url, translator);
   }
 
   @Override
