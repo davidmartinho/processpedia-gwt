@@ -29,18 +29,18 @@ public abstract class DataObjectDto extends DomainDto {
    * @param dataObjectId the data object identifier
    * @param label the label associated to the data object
    */
-	public DataObjectDto(String dataObjectId, String label) {
-		super(dataObjectId);
-		this.label = label;
-	}
+  public DataObjectDto(String dataObjectId, String label) {
+    super(dataObjectId);
+    this.label = label;
+  }
 
   /**
    * Obtain the label associated to the data object.
    * @return the data object's identifying label
    */
-	public String getLabel() {
-		return label;
-	}
+  public String getLabel() {
+    return label;
+  }
 
   /**
    * Update the label of the data object.

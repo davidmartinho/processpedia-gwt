@@ -7,8 +7,8 @@ import pt.ist.processpedia.client.dto.AtomicDataObjectDto.Type;
  */
 public class CreateAtomicDataObjectInputDto extends CreateComposedDataObjectInputDto implements Dto {
 
-  private Type type;
-  private String externalizedValue;
+  private final Type type;
+  private final String externalizedValue;
 
   /**
    * Creates a DTO representing the creation of a new data object.
@@ -16,11 +16,11 @@ public class CreateAtomicDataObjectInputDto extends CreateComposedDataObjectInpu
    * @param label the label of the data object to be created
    * @param externalizedValue the externalizedValue of the data object to be created
    */
-	public CreateAtomicDataObjectInputDto(Type type, String label, String externalizedValue) {
+  public CreateAtomicDataObjectInputDto(Type type, String label, String externalizedValue) {
     super(label);
     this.type = type;
     this.externalizedValue = externalizedValue;
-	}
+  }
 
   /**
    * Obtain the type of the data object to be created.

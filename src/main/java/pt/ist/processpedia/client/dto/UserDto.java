@@ -17,11 +17,6 @@
 
 package pt.ist.processpedia.client.dto;
 
-import com.google.gwt.json.client.JSONException;
-import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONParser;
-import com.google.gwt.json.client.JSONValue;
-
 /**
  * A DTO representing a User domain object.
  */
@@ -29,10 +24,10 @@ public class UserDto extends DomainDto {
 
   private String name;
 
-	public UserDto(String userId, String name) {
-		super(userId);
+  public UserDto(String userId, String name) {
+    super(userId);
     this.name = name;
-	}
+  }
 
   /**
    * Obtain the name of the user.

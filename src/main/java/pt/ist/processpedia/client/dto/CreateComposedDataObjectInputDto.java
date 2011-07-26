@@ -36,8 +36,8 @@ public class CreateComposedDataObjectInputDto implements Dto {
    * Obtain the label of the data object to be created.
    * @return the data object's label
    */
-	public String getLabel() {
-		return label;
-	}
+  public String getLabel() {
+    return label;
+  }
 
 }

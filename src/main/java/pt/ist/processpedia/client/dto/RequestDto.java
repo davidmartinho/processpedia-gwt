@@ -31,8 +31,8 @@ public class RequestDto extends DomainDto {
    * @param title the request's title
    * @param description the request's description
    */
-	public RequestDto(String requestId, String title, String description) {
-		super(requestId);
+  public RequestDto(String requestId, String title, String description) {
+    super(requestId);
     this.title = title;
     this.description = description;
   }

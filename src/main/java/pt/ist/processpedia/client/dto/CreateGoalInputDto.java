@@ -22,33 +22,33 @@ package pt.ist.processpedia.client.dto;
  */
 public class CreateGoalInputDto implements Dto {
 
-	private String title;
-	private String description;
+  private String title;
+  private String description;
 
   /**
    * Creates a new data container with the necessary input data.
    * @param title the goal's title
    * @param description the goal's description
    */
-	public CreateGoalInputDto(String title, String description) {
-		this.title = title;
-		this.description = description;
-	}
+  public CreateGoalInputDto(String title, String description) {
+    this.title = title;
+    this.description = description;
+  }
 
   /**
    * Obtain the title associated to the goal.
    * @return the goal's title
    */
-	public String getTitle() {
-		return this.title;
-	}
+  public String getTitle() {
+    return title;
+  }
 
   /**
    * Obtain the description associated to the goal.
    * @return the goal's description
    */
-	public String getDescription() {
-		return this.description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
 }

@@ -25,7 +25,7 @@ public class AtomicDataObjectDto extends DataObjectDto {
   public enum Type { STRING, INTEGER, DATE }
 
   private Type type;
-	private String externalizedValue;
+  private String externalizedValue;
 
   /**
    * Creates an atomic data object.
@@ -34,27 +34,27 @@ public class AtomicDataObjectDto extends DataObjectDto {
    * @param label the data object's label
    * @param externalizedValue the data object's externalized value
    */
-	public AtomicDataObjectDto(String dataObjectId, Type type, String label, String externalizedValue) {
-		super(dataObjectId, label);
+  public AtomicDataObjectDto(String dataObjectId, Type type, String label, String externalizedValue) {
+    super(dataObjectId, label);
     this.type = type;
-		this.externalizedValue = externalizedValue;
-	}
+    this.externalizedValue = externalizedValue;
+  }
 
   /**
    * Obtain the type associated to the atomic data object.
    * @return the data object's type
    */
-	public Type getType() {
-		return this.type;
-	}
+  public Type getType() {
+    return this.type;
+  }
 
   /**
    * Obtain the externalized value of the atomic data object.
    * @return the data object's externalized value
    */
-	public String getExternalizedValue() {
-		return this.externalizedValue;
-	}
+  public String getExternalizedValue() {
+    return this.externalizedValue;
+  }
 
   /**
    * Changes the type associated to the data object.

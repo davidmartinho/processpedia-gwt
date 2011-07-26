@@ -10,7 +10,7 @@
   </ui:style>
   <g:VerticalPanel styleName="{style.view}">
     <w:EditableLabel styleName="{style.processTitle}" text="Manage John Doe's MSc Thesis" />
-	  <w:EditableLabel text="This process intends to manage the MSc thesis of John Doe" addStyleNames="{style.processDescription}" />
-	  <v:GoalListViewImpl />
+    <w:EditableLabel text="This process intends to manage the MSc thesis of John Doe" addStyleNames="{style.processDescription}" />
+    <v:GoalListViewImpl />
   </g:VerticalPanel>
 </ui:UiBinder>

@@ -32,17 +32,17 @@ public class ComposedDataObjectDto extends DataObjectDto {
    * @param label the data object's label
    * @param childrenDataObjectDtoSet the set of composing data objects
    */
-	public ComposedDataObjectDto(String dataObjectId, String label, Set<DataObjectDto> childrenDataObjectDtoSet) {
-		super(dataObjectId, label);
-		this.childrenDataObjectDtoSet = childrenDataObjectDtoSet;
-	}
+  public ComposedDataObjectDto(String dataObjectId, String label, Set<DataObjectDto> childrenDataObjectDtoSet) {
+    super(dataObjectId, label);
+    this.childrenDataObjectDtoSet = childrenDataObjectDtoSet;
+  }
 
   /**
    * Obtain the set of data objects composing the data object.
    * @return the set of composing data objects
    */
-	public Set<DataObjectDto> getChildrenDataObjectDtoSet() {
-		return this.childrenDataObjectDtoSet;
-	}
+  public Set<DataObjectDto> getChildrenDataObjectDtoSet() {
+    return this.childrenDataObjectDtoSet;
+  }
 
 }

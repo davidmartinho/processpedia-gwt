@@ -29,11 +29,11 @@ public class GoalDto extends DomainDto {
    * Creates a DTO representing a Goal domain object.
    * @param goalId the identifier of the goal
    */
-	public GoalDto(String goalId, String title, String description) {
-		super(goalId);
+  public GoalDto(String goalId, String title, String description) {
+    super(goalId);
     this.title = title;
     this.description = description;
-	}
+  }
 
   /**
    * Obtain the title associated to the goal.

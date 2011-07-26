@@ -28,16 +28,16 @@ public abstract class DomainDto implements Dto {
    * Creates a new DTO representing a domain object.
    * @param id the identifier of the domain object
    */
-	public DomainDto(String id) {
-		this.id = id;
-	}
+  public DomainDto(String id) {
+    this.id = id;
+  }
 
   /**
    * Obtain the identified associated to the domain object.
    * @return the domain object's identifier
    */
-	public String getId() {
-		return this.id;
-	}
+  public String getId() {
+    return this.id;
+  }
 
 }

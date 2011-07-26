@@ -23,11 +23,14 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 import pt.ist.processpedia.client.view.ProcesspediaViewImpl;
 import pt.ist.processpedia.client.view.ProcesspediaView;
 
+/**
+ * The module entry-point class for the Processpedia GWT client.
+ */
 public class Processpedia implements EntryPoint {
 
   public void onModuleLoad() {
     ProcesspediaView processpediaView = new ProcesspediaViewImpl();
-		RootLayoutPanel.get().add(processpediaView);
+    RootLayoutPanel.get().add(processpediaView);
   }
 
 }

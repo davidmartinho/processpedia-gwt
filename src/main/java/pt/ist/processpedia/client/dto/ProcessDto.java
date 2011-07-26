@@ -17,8 +17,6 @@
 
 package pt.ist.processpedia.client.dto;
 
-import java.util.Set;
-
 /**
  * A DTO representing a Process domain object.
  */
@@ -31,11 +29,11 @@ public class ProcessDto extends DomainDto {
    * Creates a DTO representing a Process domain object.
    * @param processId the identifier of the process
    */
-	public ProcessDto(String processId, String title, String description) {
-		super(processId);
+  public ProcessDto(String processId, String title, String description) {
+    super(processId);
     this.title = title;
     this.description = description;
-	}
+  }
 
   /**
    * Obtain the title associated to the process.
