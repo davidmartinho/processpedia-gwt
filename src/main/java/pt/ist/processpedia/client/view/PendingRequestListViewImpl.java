@@ -18,6 +18,7 @@
 package pt.ist.processpedia.client.view;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -30,12 +31,18 @@ public class PendingRequestListViewImpl extends Composite implements PendingRequ
   public interface PendingRequestListViewImplUiBinder extends UiBinder<Widget, PendingRequestListViewImpl> {}
   private static PendingRequestListViewImplUiBinder uiBinder = GWT.create(PendingRequestListViewImplUiBinder.class);
 
+  private EventBus eventBus;
+
   @UiField
   HasWidgets pendingRequestsContainer;
 
   public PendingRequestListViewImpl() {
     initWidget(uiBinder.createAndBindUi(this));
     pendingRequestsContainer.add(new Label("OLA"));
+  }
+
+  public void setEventBus(EventBus eventBus) {
+    this.eventBus = eventBus;
   }
 
 }

@@ -18,19 +18,46 @@
 package pt.ist.processpedia.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.event.shared.SimpleEventBus;
 
-import pt.ist.processpedia.client.view.ProcesspediaViewImpl;
+import com.google.gwt.user.client.ui.RootPanel;
+import pt.ist.processpedia.client.dto.UserDto;
+import pt.ist.processpedia.client.event.LoginActionEvent;
+import pt.ist.processpedia.client.event.LoginActionEventHandler;
+import pt.ist.processpedia.client.view.ApplicationView;
+import pt.ist.processpedia.client.view.ApplicationViewImpl;
+import pt.ist.processpedia.client.view.LoginViewImpl;
 import pt.ist.processpedia.client.view.ProcesspediaView;
 
 /**
  * The module entry-point class for the Processpedia GWT client.
  */
-public class Processpedia implements EntryPoint {
+public class Processpedia implements EntryPoint, LoginActionEventHandler {
+
+  private UserDto userDto = null;
 
   public void onModuleLoad() {
-    ProcesspediaView processpediaView = new ProcesspediaViewImpl();
-    RootLayoutPanel.get().add(processpediaView);
+    EventBus eventBus = new SimpleEventBus();
+    eventBus.addHandler(LoginActionEvent.TYPE, this);
+    ApplicationView view;
+    if(userDto==null) {
+      view = new ApplicationViewImpl();
+    } else {
+      view = new ApplicationViewImpl();
+    }
+    view.setEventBus(eventBus);
+    loadView(view);
+  }
+
+  public void onLoginAction(LoginActionEvent loginActionEvent) {
+    userDto = new UserDto("1", loginActionEvent.getUsername());
+    ApplicationView applicationView = new ApplicationViewImpl();
+    loadView(applicationView);
+  }
+
+  private void loadView(ApplicationView view) {
+    RootPanel.get().add(view);
   }
 
 }

@@ -26,16 +26,15 @@ public interface Service<T> {
   public void onSuccess(T result);
 
   /**
-   * This method is called whenever an exception occurs during the service
-   * execution.
+   * This method is called whenever an exception occurs during the service execution.
    * @param caught the exception caught during the service's execution
    */
   public void onFailure(Throwable caught);
 
   /**
-   * Executes the service, calling the onSuccess method when the execution runs
-   * successfully, or the onFailure method if an exception occurs.
+   * Executes the service, calling the onSuccess method when the execution runs successfully,
+   * or the onFailure method if an exception occurs.
    */
   public void execute();
-	
+
 }

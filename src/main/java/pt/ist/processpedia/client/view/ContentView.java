@@ -17,8 +17,4 @@
 
 package pt.ist.processpedia.client.view;
 
-import com.google.gwt.user.client.ui.IsWidget;
-
-public interface ContentView extends IsWidget {
-
-}
+public interface ContentView extends ProcesspediaView { }

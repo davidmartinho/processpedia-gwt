@@ -18,17 +18,41 @@
 package pt.ist.processpedia.client.view;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Widget;
+
+import com.google.gwt.uibinder.client.UiField;
+import pt.ist.processpedia.client.event.LoginActionEvent;
 
 public class LoginViewImpl extends Composite implements LoginView {
 
   public interface LoginViewImplUiBinder extends UiBinder<Widget, LoginViewImpl> {}
   private static LoginViewImplUiBinder uiBinder = GWT.create(LoginViewImplUiBinder.class);
 
+  private EventBus eventBus;
+
+  @UiField
+  HasValue<String> usernameContainer;
+
+  @UiField
+  HasValue<String> passwordContainer;
+
   public LoginViewImpl() {
     initWidget(uiBinder.createAndBindUi(this));
+  }
+
+  @UiHandler("loginAction")
+  void handleLoginAction(ClickEvent e) {
+    eventBus.fireEvent(new LoginActionEvent(usernameContainer.getValue(), passwordContainer.getValue()));
+  }
+
+  public void setEventBus(EventBus eventBus) {
+    this.eventBus = eventBus;
   }
 
 }

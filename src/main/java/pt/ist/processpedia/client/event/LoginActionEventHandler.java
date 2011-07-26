@@ -15,27 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-package pt.ist.processpedia.client.view;
+package pt.ist.processpedia.client.event;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.event.shared.EventHandler;
 
-public class HeaderViewImpl extends Composite implements HeaderView {
+public interface LoginActionEventHandler extends EventHandler {
 
-  public interface HeaderViewImplUiBinder extends UiBinder<Widget, HeaderViewImpl> {}
-  private static HeaderViewImplUiBinder uiBinder = GWT.create(HeaderViewImplUiBinder.class);
-
-  private EventBus eventBus;
-
-  public HeaderViewImpl() {
-    initWidget(uiBinder.createAndBindUi(this));
-  }
-
-  public void setEventBus(EventBus eventBus) {
-    this.eventBus = eventBus;
-  }
+  public void onLoginAction(LoginActionEvent loginActionEvent);
 
 }

@@ -2,7 +2,11 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:p="urn:import:pt.ist.processpedia.client.view">
-	<g:DecoratorPanel>
-	  <g:Label text="LoginView" />
-	</g:DecoratorPanel>
+  <g:VerticalPanel>
+    <g:Label text="Username:" />
+    <g:TextBox ui:field="usernameContainer" />
+    <g:Label text="Password:" />
+    <g:PasswordTextBox ui:field="passwordContainer" />
+    <g:Button text="Login" ui:field="loginAction" />
+  </g:VerticalPanel>
 </ui:UiBinder>

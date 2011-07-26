@@ -17,25 +17,11 @@
 
 package pt.ist.processpedia.client.view;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.IsWidget;
 
-public class ProcessViewImpl extends Composite implements ProcessView {
+public interface ApplicationView extends IsWidget {
 
-  public interface ProcessViewImplUiBinder extends UiBinder<Widget, ProcessViewImpl> {}
-  private static ProcessViewImplUiBinder uiBinder = GWT.create(ProcessViewImplUiBinder.class);
-
-  private EventBus eventBus;
-
-  public ProcessViewImpl() {
-    initWidget(uiBinder.createAndBindUi(this));
-  }
-
-  public void setEventBus(EventBus eventBus) {
-    this.eventBus = eventBus;
-  }
-
+  public void setEventBus(EventBus eventBus);
+  
 }

@@ -17,6 +17,7 @@
 
 package pt.ist.processpedia.client.view;
 
+import com.google.gwt.event.shared.EventBus;
 import pt.ist.processpedia.client.util.Crypto;
 
 import com.google.gwt.core.client.GWT;
@@ -36,6 +37,8 @@ public class CreateUserViewImpl extends Composite implements CreateUserView {
 
   public interface CreateUserViewImplUiBinder extends UiBinder<Widget, CreateUserViewImpl> {}
   private static CreateUserViewImplUiBinder uiBinder = GWT.create(CreateUserViewImplUiBinder.class);
+
+  private EventBus eventBus;
 
   @UiField
   HasText nameContainer;
@@ -70,6 +73,10 @@ public class CreateUserViewImpl extends Composite implements CreateUserView {
 
   public HasText getPasswordContainer() {
     return passwordContainer;
+  }
+
+  public void setEventBus(EventBus eventBus) {
+    this.eventBus = eventBus;
   }
 
 }

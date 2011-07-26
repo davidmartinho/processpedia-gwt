@@ -22,41 +22,16 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.uibinder.client.UiField;
 
-import pt.ist.processpedia.client.ui.TextBox;
-import com.google.gwt.user.client.ui.CheckBox;
+public class ApplicationViewImpl extends Composite implements ApplicationView {
 
-public class GoalListViewImpl extends Composite implements GoalListView {
-
-  public interface GoalListViewImplUiBinder extends UiBinder<Widget, GoalListViewImpl> {}
-  private static GoalListViewImplUiBinder uiBinder = GWT.create(GoalListViewImplUiBinder.class);
+  public interface ApplicationViewImplUiBinder extends UiBinder<Widget, ApplicationViewImpl> {}
+  private static ApplicationViewImplUiBinder uiBinder = GWT.create(ApplicationViewImplUiBinder.class);
 
   private EventBus eventBus;
 
-  @UiField
-  HasWidgets goalsContainer;
-
-  @UiField
-  TextBox newGoalAction;  
-
-  public GoalListViewImpl() {
+  public ApplicationViewImpl() {
     initWidget(uiBinder.createAndBindUi(this));
-  }
-
-  @UiHandler("newGoalAction")
-  public void handleNewGoalAction(KeyDownEvent e) {
-    if(e.getNativeKeyCode()==KeyCodes.KEY_ENTER) {
-      if(!newGoalAction.getText().equals("")) {
-        CheckBox newGoal = new CheckBox(newGoalAction.getText());
-        newGoalAction.setText("");
-        goalsContainer.add(newGoal);
-      }
-    }
   }
 
   public void setEventBus(EventBus eventBus) {

@@ -61,20 +61,20 @@ public abstract class HttpService<T> implements Service<T> {
    * onError method, or delegating the response to a more concrete service
    * implementation.
    */
-	public void execute() {
-		try {
+  public void execute() {
+    try {
       this.requestBuilder.sendRequest(this.requestBuilder.getRequestData(), new RequestCallback() {
-		    public void onError(Request request, Throwable exception) {
-		      onFailure(exception);
-		    }
+        public void onError(Request request, Throwable exception) {
+          onFailure(exception);
+        }
         public void onResponseReceived(Request request, Response response) {
           onResponse(response);
         }
-		  });
-		} catch(RequestException e) {
-		  onFailure(e);
-		}
-	}
+      });
+    } catch(RequestException e) {
+      onFailure(e);
+    }
+  }
 
   /**
    * Obtain the translator that maps the content of the requests made using a

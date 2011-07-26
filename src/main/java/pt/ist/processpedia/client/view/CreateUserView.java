@@ -18,9 +18,8 @@
 package pt.ist.processpedia.client.view;
 
 import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.IsWidget;
 
-public interface CreateUserView extends IsWidget {
+public interface CreateUserView extends ProcesspediaView {
 
   public HasText getNameContainer();
   public HasText getEmailContainer();

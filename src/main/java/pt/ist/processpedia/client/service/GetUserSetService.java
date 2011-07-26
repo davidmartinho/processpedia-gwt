@@ -18,7 +18,6 @@
 package pt.ist.processpedia.client.service;
 
 import java.util.Set;
-import java.util.HashSet;
 
 import com.google.gwt.http.client.URL;
 
@@ -27,7 +26,7 @@ import pt.ist.processpedia.client.service.http.GetService;
 
 public abstract class GetUserSetService extends GetService<Set<UserDto>> {
 
-	public GetUserSetService() {
+  public GetUserSetService() {
     super(URL.encode(URLBase.REQUEST_BASE_URL));
   }
 
