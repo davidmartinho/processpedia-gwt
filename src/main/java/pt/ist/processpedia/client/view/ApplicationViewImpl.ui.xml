@@ -5,14 +5,14 @@
   <ui:style>
     .center { width: 100%; background-color: #000; text-align: center; }
   </ui:style>
-  <g:DockLayoutPanel unit='PX'>
-    <g:north size='32'>
+  <g:DockLayoutPanel unit="PX">
+    <g:north size="32">
       <v:HeaderViewImpl addStyleNames="{style.center}" />
     </g:north>
-    <g:south size='100'>
+    <g:south size="100">
       <v:FooterViewImpl />
     </g:south>
-    <g:west size='250'>
+    <g:west size="250">
 	    <v:SideBarViewImpl />
     </g:west>
     <g:center>
